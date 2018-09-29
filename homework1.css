@@ -1,0 +1,65 @@
+#first{
+    padding: 1% 10px 75px;
+    background-color: white;
+    color:grey;
+    text-align: center
+}
+#second{
+    padding: 1% 10px 75px;
+    background-color: white;
+    color:grey;
+    text-align: center
+}
+body{
+    background-color: gray;
+}
+section{ 
+
+    background-color:white;
+    color:grey;
+    padding:20px 150px 90px;
+    float: left;
+    clear: bottom;
+    text-align: center
+}
+article{
+    position: relative;
+    margin-right: 0%;
+    background-color:grey;
+    color:white;
+    padding:10% 100px 100px;
+    clear: both
+  
+}
+#third{
+    
+    background-color:white;
+    color:grey;
+    padding:25px 75px 10px;
+    clear: both;
+
+}
+aside{
+    
+    background-color:white;
+    color:grey;
+    padding:25px 250px 365px;
+    float: right;
+   
+}
+#sixth{
+    background-color:white;
+    color:grey;
+    padding:25px 75px 10px;
+}
+footer{
+    position: absolute;
+    margin-top: 35%;
+    padding: 10px 650px 30px;
+    background-color: white;
+    color:grey;
+    clear: both;
+}
+#fifth{
+    text-align: center;
+}
