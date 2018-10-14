@@ -1,0 +1,79 @@
+<!doctype html>
+ <html>
+ <head>
+  
+   <title>Psychic Game</title>
+   
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+ </head>
+ <body>
+ 	<div class="container"
+ 		<div class="row">
+ 			<div class="col-sm-12">
+ 				<h1>The Psychic Game</h1>
+ 				<p id="playerGuess">Guess what letter I'm thinking of?</p>
+ 				<p id="winsTag"></p>
+ 				<p id="losesTag"></p>
+ 				<p id="guessesLeftTag"></p>
+ 				<p id="guessesSoFarTag"></p>
+ 			</div>	
+ 		</div>
+ 	</div>	
+ 	<script type="text/javascript">
+
+ 		var letterArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+ 		var wins = 0;
+ 		var loses = 0;
+ 		var attempsCounter = 0;
+ 		var attemps = [];
+
+ 		frontEnd();
+
+		function frontEnd() {
+ 			userOutput = "Wins:" + wins; 
+ 			document.getElementById('winsTag').innerHTML = userOutput;
+ 			userOutput = "Loses:" + loses; 
+ 			document.getElementById('losesTag').innerHTML = userOutput;			
+ 			attempsCounter = 10;
+ 			userOutput = "Guesses left:" + attempsCounter; 
+ 			document.getElementById('guessesLeftTag').innerHTML = userOutput;			
+ 			attemps = [];
+ 			userOutput = "Your guesses so far:" + attemps; 
+ 			document.getElementById('guessesSoFarTag').innerHTML = userOutput;				
+           	storedLetter = letterArray[Math.round(Math.random()*25)];
+           	backEnd();
+         }  		
+
+         function backEnd() {
+ 			document.onkeyup = function(event) {
+ 				var userLetter = String.fromCharCode(event.keyCode).toLowerCase();
+ 				if (userLetter === storedLetter){
+ 					wins++;
+ 					frontEnd();
+ 				}if (letterArray.indexOf(userLetter) === -1){
+ 					backEnd();
+ 				}else 
+ 				{if (attemps.indexOf(userLetter) === -1)	
+ 					{	attempsCounter--;
+ 						if (attempsCounter === 0)
+ 						{	loses++;
+ 							frontEnd();
+ 						} else {
+ 							attemps.push(userLetter);
+ 						}			
+ 		 			}
+ 		 		}
+
+ 				userOutput = "Guesses left: " + attempsCounter; 
+ 				document.getElementById('guessesLeftTag').innerHTML = userOutput;
+ 				userOutput = "Your guesses so far: " + attemps; 
+ 				document.getElementById('guessesSoFarTag').innerHTML = userOutput;
+ 				backEnd();  
+ 			}	       	
+ 		}
+   
+ 	</script>
+
+ </body> 
+</html>
